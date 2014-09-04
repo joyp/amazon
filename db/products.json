@@ -1,0 +1,35 @@
+{
+  "_id":{"$oid":"000000000000000000000001"},
+  "name":"iPad",
+  "photo":"https://www.apple.com/support/products/images/ipad_hero.jpg",
+  "price":400.00
+}
+
+{
+  "_id":{"$oid":"000000000000000000000002"},
+  "name":"exercise ball",
+  "photo":"http://exerciseballchair.org/wp-content/uploads/2011/09/purple-exercise-ball.jpg",
+  "price":40.00
+}
+
+{
+  "_id":{"$oid":"000000000000000000000003"},
+  "name":"ring",
+  "photo":"http://4.bp.blogspot.com/-nCwi03Z_zZw/UTckoUGETWI/AAAAAAAAB1g/4QDBVfFid6U/s1600/Diamond+Rings.jpeg",
+  "price":8000.00
+}
+
+{
+  "_id":{"$oid":"000000000000000000000004"},
+  "name":"watch",
+  "photo":"http://1.bp.blogspot.com/-0UVEBHGd9TI/URInB8ukUMI/AAAAAAAAE8I/H8dfxnmUQAo/s400/watchess.jpg",
+  "price":200.00
+}
+
+{
+  "_id":{"$oid":"000000000000000000000005"},
+  "name":"pen",
+  "photo":"http://www.thegreenhead.com/imgs/video-camera-spy-pen-1.jpg",
+  "price":2.00
+}
+

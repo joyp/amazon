@@ -11,6 +11,8 @@
     .collapse.navbar-collapse#bs-navbar-collapse
       ul.nav.navbar-nav.navbar-right
         if user
+          li: a(href='/products'): i.fa.fa-leaf.fa &nbsp Products
+          li: a(href='/cart'): i.fa.fa-shopping-cart.fa &nbsp Cart
           li: a(href='/profile'): i.fa.fa-leaf.fa &nbsp #{user.email || user.username}
           li: a(href='/profile/edit'): i.fa.fa-leaf.fa &nbsp Edit Profile
           li

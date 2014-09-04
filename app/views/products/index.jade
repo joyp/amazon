@@ -1,0 +1,18 @@
+extends ../shared/template
+block content
+  h2 Product List
+  table.table.table-bordered
+    thead
+      tr
+        th Product
+        th Photo
+        th Price
+    tbody
+      each product in products
+        tr
+          td
+            form(method='post', action='/cart')
+              input(type='hidden', name='productId', value=product._id)
+              button.btn.btn-primary.btn-lg(type='submit')= product.name
+          td#image.img.thumbnail(style='background-image:url("#{product.photo}")')
+          td $#{product.price.toFixed(2)}
