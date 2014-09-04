@@ -31,10 +31,24 @@ module.exports = function(app, express){
   app.get('/register', users.new);
   app.post('/register', users.create);
   app.get('/login', users.login);
-  app.post('/login', passport.authenticate('local', {successRedirect:'/', failureRedirect:'/login', successFlash:'Welcome back!', failureFlash:'Sorry, your login was incorrect.'}));
+  app.post('/login', passport.authenticate('local', {successRedirect:'/', failureRedirect:'/login', successFlash:'Login successful!', failureFlash:'Sorry, your login was incorrect.'}));
+  app.get('/auth/twitter', passport.authenticate('twitter'));
+  app.get('/auth/twitter/callback', passport.authenticate('twitter', {successRedirect:'/', failureRedirect:'/login', successFlash:'Twitter login successful!', failureFlash:'Sorry, your Twitter login was unsuccessful.'}));
+  app.get('/auth/github', passport.authenticate('github'));
+  app.get('/auth/github/callback', passport.authenticate('github', {successRedirect:'/', failureRedirect:'/login', successFlash:'Github login successful!', failureFlash:'Sorry, your Github login was unsuccessful.'}));
+  app.get('/auth/google', passport.authenticate('google', {scope: ['https://www.googleapis.com/auth/plus.login', 'https://www.googleapis.com/auth/plus.profile.emails.read']}));
+  app.get('/auth/google/callback', passport.authenticate('google', {successRedirect:'/', failureRedirect:'/login', successFlash:'Google login successful!', failureFlash:'Sorry, your Google login was unsuccessful.'}));
+  app.get('/auth/facebook', passport.authenticate('facebook'));
+  app.get('/auth/facebook/callback', passport.authenticate('facebook', {successRedirect:'/', failureRedirect:'/login', successFlash:'Facebook login successful!', failureFlash:'Sorry, your Facebook login was unsuccessful.'}));
+  app.get('/auth/meetup', passport.authenticate('meetup'));
+  app.get('/auth/meetup/callback', passport.authenticate('meetup', {successRedirect:'/', failureRedirect:'/login', successFlash:'Meetup login successful!', failureFlash:'Sorry, your Meetup login was unsuccessful.'}));
 
   app.use(security.bounce);
   app.delete('/logout', users.logout);
+
+  app.get('/profile', users.show);
+  app.post('/profile', users.update);
+  app.get('/profile/edit', users.edit);
 
   console.log('Express: Routes Loaded');
 };

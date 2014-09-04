@@ -13,6 +13,7 @@ exports.login = function(req, res){
 exports.logout = function(req, res){
   // this is a passport function, it logs out and destroys the req session
   req.logout();
+  req.flash('notice', 'You have successfully logged out of the system.');
   res.redirect('/');
 };
 
@@ -26,3 +27,17 @@ exports.create = function(req, res){
   });
 };
 
+exports.show = function(req, res){
+  res.render('users/show');
+};
+
+exports.edit = function(req, res){
+  res.render('users/edit');
+};
+
+exports.update = function(req, res){
+  req.user.update(req.body, function(){
+    req.flash('notice', 'You have updated your profile.');
+    res.redirect('/profile');
+  });
+};

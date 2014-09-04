@@ -1,0 +1,11 @@
+extends ../shared/template
+block content
+  .row
+    .col-xs-4
+    .col-xs-6
+      h2 Profile Page
+      h3= user.email || user.username
+      h3= user.name || user.displayName
+      h3= user.phone
+      img.thumbnail#userPhoto(src=user.photo)
+    .col-xs-4
